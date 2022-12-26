@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/e36a00ae47.js" crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 0.1em;
+            margin-block-end: 0.1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+
+        body {
+            background-color: rgb(200, 209, 227);
+        }
+
+        ul,
+        #myUL {
+            list-style-type: none;
+        }
+
+        #myUL {
+            margin: 0;
+            padding: 0;
+        }
+
+        .caret {
+            cursor: pointer;
+            -webkit-user-select: none;
+            /* Safari 3.1+ */
+            -moz-user-select: none;
+            /* Firefox 2+ */
+            -ms-user-select: none;
+            /* IE 10+ */
+            user-select: none;
+        }
+
+        .caret::before {
+            content: "\25B8";
+            color: black;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .caret-down::before {
+            -ms-transform: rotate(90deg);
+            /* IE 9 */
+            -webkit-transform: rotate(90deg);
+            /* Safari */
+            transform: rotate(90deg);
+        }
+
+        .nested {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .left {
+            background-color: white;
+            width: 40%;
+            height: 300px;
+            overflow: scroll
+        }
+
+        .mid {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .right {
+            background-color: white;
+            width: 40%;
+            min-height: 200px;
+            max-height: 300px;
+            overflow: scroll
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 30px 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: #000;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .btn {
+            width: 100px;
+            height: 30px;
+            background-color: rgb(90, 171, 90);
+            border: none;
+            border-radius: 5px;
+        }
+        .bar{
+            height: 50px;
+            background-color: white;
+        }
+        .arrow{
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+        
+        <nav class="navbar">
+            <a href="" class="navbar-brand">
+                <span style="font-size:30px;cursor:pointer; padding-right: 5px ;" onclick="openNav()">&#9776;</span>
+                <h3> Device on Cloud<br> & Analytics</h3>
+            </a>
+            <div class="btn-div">
+                <button class="btn">Log in</button>
+                <button class="btn">Sign up</button>
+            </div>
+
+        </nav>
+        <hr>
+        <div class="bar">
+
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="left">
+            <ul id="myUL">
+                <li id="f1">
+                    <span class="caret">
+                        <input type="checkbox" id="parent_checkbox" onclick="masterCheck()">
+                        <label for="banking"><img src="OneDrive_Folder_Icon.svg.png" class="img" alt="" width="15px"
+                                height="15px"> Banking </label>
+                    </span>
+                    <ul class="nested">
+                        <li>
+                            <input type="checkbox" class="child_check" name="ckbox[]" value="1" onclick="check()">
+                            <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                            ACHAC0006
+                        </li>
+                        <li>
+                            <input type="checkbox" class="child_check" name="ckbox[]" value="2" onclick="check()">
+                            <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                            ACHAC0007
+                        </li>
+                    </ul>
+                </li>
+                <li><span class="caret">
+                        <input type="checkbox" id="parent_checkbox2" name="selectAll" onclick="masterCheck2()">
+                        <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                        Educational Institution
+                    </span>
+                    <ul class="nested">
+                        <li>
+                            <input type="checkbox" class="child_check2" name="ckbox2[]" onclick="check2()">
+                            <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                            ACHAC0001
+                        </li>
+                        <li>
+                            <input type="checkbox" class="child_check2" name="ckbox2[]" onclick="check2()">
+                            <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                            ACHAC0002
+                        </li>
+                        <li>
+                            <input type="checkbox" class="child_check2" name="ckbox2[]" onclick="check2()">
+                            <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                            ACHAC0003
+                        </li>
+                    </ul>
+                </li>
+                <li><span class="caret">
+                        <input type="checkbox" id="parent_checkbox3" onclick="masterCheck3()">
+                        <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                        Hospital
+                    </span>
+                    <ul class="nested">
+                        <li>
+                            <input type="checkbox" class="child_check3" name="ckbox3[]" onclick="check3()" >
+                            <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                            ACHAC0004
+                        </li>
+                        <li>
+                            <input type="checkbox" class="child_check3" name="ckbox3[]" onclick="check3()">
+                            <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                            ACHAC0005
+                        </li>
+                        <li>
+                            <input type="checkbox" class="child_check3" name="ckbox3[]" onclick="check3()">
+                            <img src="OneDrive_Folder_Icon.svg.png" alt="" width="15px" height="15px">
+                            ACHAC0008
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="mid">
+            <button class="arrow" id="leftMove"><i class="fa-sharp fa-solid fa-caret-left fa-2x"></i></button>
+            <button class="arrow" id="rightMove"><i class="fa-sharp fa-solid fa-caret-right fa-2x"></i></button>
+        </div>
+        <div class="right" id="right" style=" vertical-align:middle; color: rgb(123, 115, 115);">
+            <div id="myUL2">
+                No Asset has been selected !!
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
